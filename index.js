@@ -2,5 +2,6 @@
 // const cetakNama = require('./coba'); //local module
 // const moment =require('moment'); // third party / npm module / node_module
 
+const coba = require('./coba');
 
-console.log(cetakNama('Taqin'));
+console.log(coba.cetakNama('Taqin'), coba.PI, coba.mahasiswa.cetakMhs(), new coba.Orang());
