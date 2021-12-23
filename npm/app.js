@@ -7,5 +7,5 @@ const chalk = require('chalk');
 
 // console.log(chalk.italic.bgRed.white('Hello WOrld'));
 const nama = 'Taqin';
-const pesan = chalk`Hay, saya ${nama} sedang belajar {bgRed nodejs} lo, {bgRed.bold yuk belajar bareng!}`;
+const pesan = chalk`Hay, saya ${nama} sedang belajar {bgRed nodejs} lo, {bgRed.bold.italic yuk belajar bareng!}`;
 console.log(pesan);
