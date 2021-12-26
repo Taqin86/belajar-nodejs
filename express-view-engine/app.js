@@ -1,9 +1,11 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const app = express();
+const port = 3000;
 
 // gunakan ejs
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 app.get('/', (req, res) => {
   const mahasiswa = [
