@@ -5,6 +5,8 @@ const port = 3000;
 
 // gunakan ejs
 app.set('view engine', 'ejs');
+
+// Third-party Middleware
 app.use(expressLayouts);
 
 // Built-in middleware
