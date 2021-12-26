@@ -28,11 +28,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about', {title: 'Halaman About'});
 })
 
 app.get('/contact', (req, res) => {  
-  res.render('contact');
+  res.render('contact', {title: 'Halaman Contact'});
 })
 
 app.get('/product/:id', (req, res) => {  
