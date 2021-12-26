@@ -13,12 +13,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.send('Ini adalah halaman about')
+  // res.send('Ini adalah halaman about')
+  res.sendFile('./about.html', {root: __dirname});
+
 })
 
 app.get('/contact', (req, res) => {  
-  res.send('Ini adalah halaman contact')
+  // res.send('Ini adalah halaman contact')
+  res.sendFile('./contact.html', {root: __dirname});
 })
+
+app.get('/product/:id', (req, res) => {  
+  res.send(`Product ID : ${req.params.id} <br> Category : ${req.query.category}`);
+})
+
 
 app.use('/', (req, res) => {
   res.status(404);
