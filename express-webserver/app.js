@@ -3,12 +3,28 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  // res.send('Hello World!')
+  // res.json({
+  //   nama: 'Taqin',
+  //   email: 'rizqi@gmail.com',
+  //   noHP: '08512345623'
+  // })
+  res.sendFile('./index.html', {root: __dirname});
 })
 
 app.get('/about', (req, res) => {
   res.send('Ini adalah halaman about')
 })
+
+app.get('/contact', (req, res) => {  
+  res.send('Ini adalah halaman contact')
+})
+
+app.use('/', (req, res) => {
+  res.status(404);
+  res.send('<h1>404</h1>')
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
