@@ -22,19 +22,26 @@ app.get('/', (req, res) => {
       email: 'Ari@gmail.com'
     },
   ]
-  res.render('index', { 
+  res.render('index', {
+    layout: 'layouts/main-layout',
     nama: 'Rizqi Taqin', 
     title: 'Halaman Home',
     mahasiswa,
-});
+});  
 })
 
 app.get('/about', (req, res) => {
-  res.render('about', {title: 'Halaman About'});
+  res.render('about', {
+    layout: 'layouts/main-layout',
+    title: 'Halaman About'
+  });
 })
 
 app.get('/contact', (req, res) => {  
-  res.render('contact', {title: 'Halaman Contact'});
+  res.render('contact', {
+    layout: 'layouts/main-layout',
+    title: 'Halaman Contact'
+  });
 })
 
 app.get('/product/:id', (req, res) => {  
