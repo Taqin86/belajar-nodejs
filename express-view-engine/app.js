@@ -6,7 +6,25 @@ const port = 3000
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const mahasiswa = [
+    {
+      nama: 'Rizqi Taqin',
+      email: 'Rizqi@gmail.com'
+    },
+    {
+      nama: 'Dhamar',
+      email: 'dhamar@gmail.com'
+    },
+    {
+      nama: 'Ari',
+      email: 'Ari@gmail.com'
+    },
+  ]
+  res.render('index', { 
+    nama: 'Rizqi Taqin', 
+    title: 'Halaman Home',
+    mahasiswa,
+});
 })
 
 app.get('/about', (req, res) => {
