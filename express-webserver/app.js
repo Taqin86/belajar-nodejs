@@ -1,50 +1,70 @@
-const fs = require('fs');
-const http = require('http');
-const path = require('path/posix');
-const { REPL_MODE_SLOPPY } = require('repl');
+const express = require('express')
+const app = express()
+const port = 3000
 
-const port = '3000';
-
-const renderHTML = (path, res) => {
-    fs.readFile(path, (err, data) =>{
-        if(err) {
-            res.writeHead(404);
-            res.write('Error: file not found');
-        } else {
-            res.write(data);
-        }
-        res.end();
-    });
-};
-
-http.createServer((req, res)=> {
-    res.writeHead(200, {
-        'Content-Type': 'text/html'
-    });
-
-    const url = req.url;
-
-    switch(url) {
-        case '/about':
-            renderHTML('./about.html',res);
-            break;
-        case '/contact':
-            renderHTML('./contact.html', res);
-            break;
-        default:
-            renderHTML('/index.html', res);
-            break;
-    }
-
-
-    // if(url === '/about') {
-    //     renderHTML('./about.html', res)
-    // } else if(url === '/contact') {
-    //     renderHTML('./contact.html', res)
-    // } else {
-    //     // res.write('Hello World');
-    //     renderHTML('./index.html', res)
-    // }
-}).listen(port, () => {
-    console.log(`Server is listening on port ${port}..`)
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 })
+
+app.get('/about', (req, res) => {
+  res.send('Ini adalah halaman about')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
+
+
+
+
+
+// const fs = require('fs');
+// const http = require('http');
+// const path = require('path/posix');
+
+// const port = '3000';
+
+// const renderHTML = (path, res) => {
+//     fs.readFile(path, (err, data) =>{
+//         if(err) {
+//             res.writeHead(404);
+//             res.write('Error: file not found');
+//         } else {
+//             res.write(data);
+//         }
+//         res.end();
+//     });
+// };
+
+// http.createServer((req, res)=> {
+//     res.writeHead(200, {
+//         'Content-Type': 'text/html'
+//     });
+
+//     const url = req.url;
+
+//     switch(url) {
+//         case '/about':
+//             renderHTML('./about.html',res);
+//             break;
+//         case '/contact':
+//             renderHTML('./contact.html', res);
+//             break;
+//         default:
+//             renderHTML('/index.html', res);
+//             break;
+//     }
+
+
+//     // if(url === '/about') {
+//     //     renderHTML('./about.html', res)
+//     // } else if(url === '/contact') {
+//     //     renderHTML('./contact.html', res)
+//     // } else {
+//     //     // res.write('Hello World');
+//     //     renderHTML('./index.html', res)
+//     // }
+// }).listen(port, () => {
+//     console.log(`Server is listening on port ${port}..`)
+// })
