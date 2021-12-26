@@ -1,3 +1,4 @@
+const fs = require('fs');
 const http = require('http');
 const port = '3000'
 
@@ -14,10 +15,17 @@ http.createServer((req, res)=> {
         res.write('<h1>Ini adalah halaman contact');
     res.end();
     } else {
-        res.write('Hello World');
-        res.end();
+        // res.write('Hello World');
+        fs.readFile('./index.html', (err, data) =>{
+            if(err) {
+                res.writeHead(404);
+                res.write('Error: file not found');
+            } else {
+                res.write(data);
+            }
+            res.end();
+        })
     }
-
 }).listen(port, () => {
     console.log(`Server is listening on port ${port}..`)
 })
