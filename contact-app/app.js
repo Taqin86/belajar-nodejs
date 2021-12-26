@@ -24,6 +24,6 @@ yargs.command({
     handler(argv) {
         contacts.simpanContact(argv.nama, argv.email, argv.noHP);
     }
-});
+}).demandCommand();
 
 yargs.parse();
