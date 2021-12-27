@@ -52,4 +52,14 @@ const deleteContact = (nama) => {
     saveContacts(filteredContact);
 }
 
-module.exports = {loadContact, findContact, addContact, cekDuplikat, deleteContact}
+// mengubah contacts
+const updateContacts = (contactBaru) => {
+    const contacts = loadContact();
+    // hilangkan contact lama yang namanya sama dengan oldNama
+    const filteredContact = contacts.filter((contact) => contact.nama !== contactBaru.oldNama );
+    delete contactBaru.oldNama;
+    filteredContact.push(contactBaru);
+    saveContacts(filteredContact);
+}
+
+module.exports = {loadContact, findContact, addContact, cekDuplikat, deleteContact, updateContacts}
