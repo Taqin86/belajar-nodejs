@@ -166,7 +166,7 @@ app.get('/contact/:nama', (req, res) => {
     title: 'Halaman Detail Contact',
     contact
   });
-})
+});
 
 
 app.use('/', (req, res) => {
